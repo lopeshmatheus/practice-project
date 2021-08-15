@@ -45,8 +45,6 @@ namespace classes_project
                 robotNames.Add(robot.Name);
             }
 
-            ConsoleKeyInfo userInput = "a";
-
 
             var robotsAndNumbers = numbers.Zip(robotNames, (n, r) => new { Number = n, RobotName = r });
 
@@ -55,21 +53,27 @@ namespace classes_project
             foreach (var nr in robotsAndNumbers)
             {
                 Console.WriteLine($"Press {nr.Number} for {nr.RobotName}\nPress {nr.Number} for {nr.RobotName}/nPress {nr.Number} for {nr.RobotName}");
-                userInput = Console.ReadKey();
             }
+
+
+            foreach (Robot item in availableRobots)
+            {
+                Console.WriteLine($"{item.Name}");
+            }
+            var userInput = Console.ReadKey();
             switch (userInput.Key)
             {
                 case ConsoleKey.A:
-                    person.owning.Add("Garry");
-                    person.money -= 199.99;
+                    person.Owning.Add("Garry");
+                    person.Money -= 199.99;
                     break;
                 case ConsoleKey.B:
-                    person.owning.Add("Joe");
-                    person.money -= 299.99;
+                    person.Owning.Add("Joe");
+                    person.Money -= 299.99;
                     break;
                 case ConsoleKey.C:
-                    person.owning.Add("Mr. Peanutbutters");
-                    person.money -= 500.00;
+                    person.Owning.Add("Mr. Peanutbutters");
+                    person.Money -= 500.00;
                     break;
             }
 

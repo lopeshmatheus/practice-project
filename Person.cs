@@ -8,38 +8,33 @@ using System.Threading.Tasks;
 namespace classes_project
 {
     //I created a person class so it can holds some useful info i'll use to interact with the robots
-    class Person
+    static class Person
     {
-        public string name;
-        public double money;
-        public List<string> owning;
+        static public string Name = "Default user";
+        static public double Money = 1000;
+        static public List<object> Owning = new List<object> { };
 
 
-        public Person(string name = "default", double money =1000)
+        static public void ShowMyBelongins()
         {
-            this.name = name;
-            this.money = money;
+            Console.WriteLine($"Currently, I have: {Owning}");
         }
-        public void CreatePerson()
+        static public void ShowMyMoney()
         {
-            Console.WriteLine("Hello, what is your name?");
-            this.name = Console.ReadLine();
-            Console.WriteLine($"Nice to meet you {name}, now, tell me, how much money do you have to spend?");
-            string userMoney = Console.ReadLine();
-            this.money = Convert.ToDouble(userMoney);
+            Console.WriteLine($"My current money is ${Money}");
         }
-
-        
-
-
-        public void ShowMyBelongins()
+        static public void EditProfie()
         {
-            Console.WriteLine($"Currently, I have: {owning}");
+            Console.WriteLine("Welcome to you profile, please, tell me, what's your name?");
+            var name = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine($"Thank you {name}, now, how much money do you have?");
+            var money = Console.ReadLine();
+            Console.Clear();
+            var moneyDouble = Convert.ToDouble(money);
+            Name = name;
+            Money = moneyDouble;
+            Console.Clear();
         }
-        public void ShowMyMoney()
-        {
-            Console.WriteLine($"My current money is ${money}");
-        }
-
     }
 }

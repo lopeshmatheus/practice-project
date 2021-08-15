@@ -14,15 +14,17 @@ namespace classes_project
             Console.WriteLine("1.Set a profile.");
             Console.WriteLine("2.Buy a Robot");
             var userAnswer1 = Console.ReadLine();
-
+            
             switch (userAnswer1)
             {
                 case "1":
-                    var user1 = new Person();
-                    user1.CreatePerson();
+                    Console.Clear();
+                    Person.EditProfie();
                     break;
                 case "2":
-
+                    Console.Clear();
+                    Storage.Buy();
+                    break;
             }
 
         }
